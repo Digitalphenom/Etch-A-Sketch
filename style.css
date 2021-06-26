@@ -32,24 +32,28 @@
     justify-content: space-around;
     border-radius: 6px;
     background-image: linear-gradient(189deg, #D42645 22%, #ac0f2c);
-   box-shadow: inset -8px -10px 60px 8px #910101;
-   box-shadow: inset -2px -8px 14px 1px #570101;
-
-
+    box-shadow: inset -8px -10px 60px 8px #910101;
+    box-shadow: inset -2px -8px 14px 1px #570101;
+    
+    
 }
 
 .screen {
-/* 
+    /* 
     display:flex;
-    flex-direction:row;
-    flex-wrap: wrap; */
+    flex-direction:row;*/
+    /* flex-wrap: wrap;  */
     display: grid;
+    
     /* grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr); */
-    
+    align-content: start;
+    justify-content: flex-start;
     margin-top:20px;
-    height:600px;
-    width:600px;
+    row-gap: 0px;
+    column-gap: 0px;
+    height:584px;
+    width:584px;
     background-color: #e0e0e0;
     border-top:0px;
     border-left:0px;
@@ -83,7 +87,8 @@
     border-radius: 30px;
     color:white;
     font-size:16px;
- 
+    cursor:pointer;
+    
     /* box-shadow: 5px 10px 6px -2px #580202; */
 }
 
@@ -92,13 +97,14 @@ h1 {
     font-family:oxygen;
 }
 .box1{
-    
-    border-style: solid;
+    /* border-style: solid;
     border-width:1px;
-    border-color: rgb(173, 173, 173);
-    height:33.5px;
-    width:33.5px;
-
+    border-color: rgb(206, 206, 206); */
+    height:36.5px;
+    width:36.5px;
+    
+    
+    
     /* display: flex;
     flex-direction: row;
     align-self: flex-end; */
@@ -107,12 +113,9 @@ h1 {
 
 .box2{
     background-color: rgb(8, 8, 8);
-    border-style: solid;
-    border-width:1px;
-    border-color: rgb(26, 26, 26);
-
+    transition: background-color 0.5s ease;
 }
-  
+
 
 
 
