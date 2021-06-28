@@ -8,17 +8,25 @@ let gridDimension = (screenSize/userInput) -2;
 let div = ""
 
 const gridX = (userInput) => {
+
+    function setGrid() {
+
+        screen.style.gridTemplateColumns = `repeat(${userInput}, 1fr)`;
+    }
     
-    screen.style.gridTemplateColumns = `repeat(${userInput}, auto)`;
-    screen.style.gridTemplateRows = `repeat(${userInput}, auto)`;
-    
-    for ( i = 0; i < userInput **2; i++) {
-        
-        div = document.createElement('div');
-        div.classList.add('box1');
-        screen.append(div);
-        div.style.width = `${gridDimension}px`;
-        div.style.height = `${gridDimension}px`;
+    // screen.style.gridTemplateRows = `repeat(${userInput}, 1fr)`;
+    loadGrid()
+    function loadGrid () {
+
+
+        for ( i = 0; i < userInput **2; i++) {
+            setGrid()
+            div = document.createElement('div');
+            div.classList.add('box1');
+            screen.append(div);
+            div.style.width = `${gridDimension}px`;
+            div.style.height = `${gridDimension}px`;
+        }
         
         function Click(e) {
             e.target.style.backgroundColor = '#023047';
@@ -47,9 +55,8 @@ const gridX = (userInput) => {
 
 }
 
-
-function randomColor(){
-    const colors = [
+    function randomColor(){
+const colors = [
         '#4cc9f0',
         '#4895ef',
         '#4361ee',
@@ -60,14 +67,14 @@ function randomColor(){
         '#7209b7',
         '#b5179e',
         '#f72585'
-            
+
         ]
-        let randomColor = Math.floor(Math.random() * colors.length)
-        let colorPicker = colors[randomColor]
+let randomColor = Math.floor(Math.random() * colors.length)
+let colorPicker = colors[randomColor]
         return colorPicker;
     }
     
-    const colorBtn = document.querySelector('#colorBtn')
+const colorBtn = document.querySelector('#colorBtn')
     
     colorBtn.addEventListener('click', () => {
         
@@ -83,8 +90,7 @@ function randomColor(){
             function ClickHover(e) {
                 if (e.buttons > 0) {
                     e.target.style.backgroundColor = randomColor();
-                }
-                
+                }   
             }
             function listen() {
                 grids = document.querySelectorAll('.box1');
@@ -92,17 +98,14 @@ function randomColor(){
                     grids[i].addEventListener('mousedown', Click);
                     // listen for mouse over change color if mouse button press
                     grids[i].addEventListener('mouseenter', ClickHover);
-                }
-                
+                }   
             }
-            
-            
         }
         listen();
     });
-    const resetBtn = () => {
+const resetBtn = () => {
         
-        const resetBtn = document.querySelector('#reset');
+const resetBtn = document.querySelector('#reset');
         resetBtn.addEventListener('click', function(){
             location.reload();
         })
