@@ -3,41 +3,50 @@
 // Etch-a-Sketch
 const screen = document.querySelector('.screen');
 const screenSize = 584;
-let userInput = prompt ('enter your grid size',);
-let gridDimension = (screenSize/userInput) -2;
+let defaultInput = 16
+
+let gridDimension = (screenSize/defaultInput) -2;
 let div = ""
 
-const gridX = (userInput) => {
-
-    function setGrid() {
-
-        screen.style.gridTemplateColumns = `repeat(${userInput}, 1fr)`;
-    }
+const gridX = () => {
     
-    // screen.style.gridTemplateRows = `repeat(${userInput}, 1fr)`;
+    function userInputs(){
+        const newGrid = document.querySelector('#newGridBtn');
+        newGrid.addEventListener('click', ()=> {
+            let value = Number(prompt('enter',''));
+            return console.log(value)
+            
+        })
+    }
+    userInputs()
+
+                
+                
+    function setGrid() {
+                    
+    screen.style.gridTemplateColumns = `repeat(${defaultInput}, 1fr)`;
+}
     loadGrid()
-    function loadGrid () {
-
-
-        for ( i = 0; i < userInput **2; i++) {
-            setGrid()
-            div = document.createElement('div');
-            div.classList.add('box1');
-            screen.append(div);
-            div.style.width = `${gridDimension}px`;
-            div.style.height = `${gridDimension}px`;
+    function loadGrid () {                
+        for ( i = 0; i < defaultInput **2; i++) {
+        setGrid()
+        div = document.createElement('div');
+        div.classList.add('box1');
+        screen.append(div);
+        div.style.width = `${gridDimension}px`;
+        div.style.height = `${gridDimension}px`;
         }
         
-        function Click(e) {
-            e.target.style.backgroundColor = '#023047';
+    function Click(e) {
+        e.target.style.backgroundColor = '#023047';
             
-        }
+    }
         //   Hold mouse down
-        function ClickHover(e) {
-            if (e.buttons > 0) {
-                e.target.style.backgroundColor = '#023047';
+    function ClickHover(e) {
+        if (e.buttons > 0) {
+        e.target.style.backgroundColor = '#023047';
                 
-        }
+    }
         
     }
     function listen() {
@@ -67,7 +76,6 @@ const colors = [
         '#7209b7',
         '#b5179e',
         '#f72585'
-
         ]
 let randomColor = Math.floor(Math.random() * colors.length)
 let colorPicker = colors[randomColor]
@@ -111,7 +119,7 @@ const resetBtn = document.querySelector('#reset');
         })
     }
     resetBtn()
-    gridX(userInput);
+    gridX();
     
     
     

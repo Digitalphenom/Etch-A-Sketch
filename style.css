@@ -92,6 +92,10 @@
     
     /* box-shadow: 5px 10px 6px -2px #580202; */
 }
+#newGridButton {
+    background-color: #1d1414 !important;
+
+}
 
 h1 {
     font-size: 42px;
